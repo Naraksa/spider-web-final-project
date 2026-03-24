@@ -1,5 +1,52 @@
 # 🕸️ SpiderWeb: Get to Know Spiders from Different Regions
 
+## ⚙️ How to Run the Project
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/spider-web-final-project.git
+
+2. Navigate into the project folder:
+    cd spider-web-final-project
+
+3. Open the project:
+    - Double click home.html or
+    - open with VS code and use the Live Server extension
+
+4. Explore the website in your browser
+
+```md
+## 🤝 Collaboration Guidelines
+
+This project is developed as a group assignment. To ensure smooth collaboration:
+
+### 🔹 Workflow
+- Each member is responsible for a specific page or feature:
+  - Home page (`home.html`)
+  - Regions page (`region.html`)
+  - Spider page (`spider.html`)
+  - Contact page (`contact.html`)
+
+---
+
+### 🔹 Branching Strategy
+- Create a new branch before working on a feature:
+  ```bash
+  git checkout -b feature/page-name
+
+### 🔹 Commit Strategy
+  git commit -m "<Update>"
+
+### 🔹 Push Changes
+  git push origin feature/page-name
+
+### 🔹 Notice
+    - Avoid editing the same files simultaneously
+    - Always pull the latest changes before starting work:
+  git pull origin main
+
+
+---
 ## 📌 Project Overview
 SpiderWeb is a web-based platform designed to provide informative and visually engaging content about spiders from different regions around the world. The website showcases spider characteristics, habitats, and danger levels, while maintaining an interactive and thematic user experience.
 
