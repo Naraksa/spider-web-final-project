@@ -75,27 +75,6 @@ The website follows a **“spider-cave” aesthetic**, incorporating:
 
 ---
 
-## 📁 Project Structure
-SpiderWeb/
-│
-├── home.html
-├── region.html
-├── spider.html
-├── contact.html
-│
-├── css/
-│ └── style.css
-│
-├── js/
-│ └── script.js
-│
-├── images/
-│
-└── assets/
-
-
----
-
 ## ✨ Features
 
 - 🎞️ Interactive slideshow on homepage and regions page
