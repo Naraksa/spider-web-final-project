@@ -15,7 +15,6 @@
 
 4. Explore the website in your browser
 
-```md
 ## 🤝 Collaboration Guidelines
 
 This project is developed as a group assignment. To ensure smooth collaboration:
