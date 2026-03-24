@@ -34,17 +34,14 @@ This project is developed as a group assignment. To ensure smooth collaboration:
   git checkout -b feature/page-name
 
 ### 🔹 Commit Strategy
-  ```bash
   git commit -m "<Update>"
 
 ### 🔹 Push Changes
-  ```bash
   git push origin feature/page-name
 
 ### 🔹 Notice
     - Avoid editing the same files simultaneously
     - Always pull the latest changes before starting work:
-  ```bash
   git pull origin main
 
 
