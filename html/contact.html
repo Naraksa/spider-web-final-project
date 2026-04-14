@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">   
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spider Web</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>SpiderWeb</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/spiders">Spider</a></li>
+                    <li class="dropdown">
+                        <a href="/regions" class="caret">Region</a>
+                        <ul class="dropdown-content">
+                            <li><a href="/regions/asia">Asia</a></li>
+                            <li><a href="/regions/europe">Europe</a></li>
+                            <li><a href="/regions/america">America</a></li>
+                            <li><a href="/regions/africa">Africa</a></li>
+                            <li><a href="/regions/australia">Australia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <section class="contact-section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, suggestions, or just want to say hi, feel free to reach out to us!</p>
+                <form action="/submit_contact" method="post" class="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2026 Spider Web. All rights reserved.</p>
+        </footer>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
