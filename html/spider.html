@@ -1,34 +1,575 @@
 <!DOCTYPE html>
-<html lang="en">   
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spider Web</title>
-        <link rel="stylesheet" href="/css/style.css">
+        <title>SpiderWeb – Spider Species</title>
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
         <header>
-            <h1>SpiderWeb</h1>
-            <nav>
+            <h1 data-aos="fade-down" data-aos-delay="200">SpiderWeb</h1>
+            <nav data-aos="fade-down" data-aos-delay="200">
+                <img src="/asset/images/widget.png" alt="Menu" id="menu-btn" width="50px">
                 <ul>
                     <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
                     <li><a href="spider.html">Spider</a></li>
                     <li class="dropdown">
                         <a href="region.html" class="caret">Region</a>
                         <ul class="dropdown-content">
-                            <li><a href="/regions/asia">Asia</a></li>
-                            <li><a href="/regions/europe">Europe</a></li>
-                            <li><a href="/regions/america">America</a></li>
-                            <li><a href="/regions/africa">Africa</a></li>
-                            <li><a href="/regions/australia">Australia</a></li>
+                            <li><a href="#regions/asia">Asia</a></li>
+                            <li><a href="#regions/europe">Europe</a></li>
+                            <li><a href="#regions/america">America</a></li>
+                            <li><a href="#regions/africa">Africa</a></li>
+                            <li><a href="#regions/australia">Australia</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-
         </header>
+
+        <!-- ===== MAIN ===== -->
+        <main class="spider-main">
+
+            <!-- ── HERO ──────────────────────────────────── -->
+            <section class="spider-hero">
+                <svg class="spider-hero__web" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none">
+                        <line x1="150" y1="150" x2="150" y2="0"/>
+                        <line x1="150" y1="150" x2="300" y2="75"/>
+                        <line x1="150" y1="150" x2="270" y2="255"/>
+                        <line x1="150" y1="150" x2="150" y2="300"/>
+                        <line x1="150" y1="150" x2="30"  y2="255"/>
+                        <line x1="150" y1="150" x2="0"   y2="75"/>
+                        <circle cx="150" cy="150" r="40"/>
+                        <circle cx="150" cy="150" r="80"/>
+                        <circle cx="150" cy="150" r="120"/>
+                        <circle cx="150" cy="150" r="160"/>
+                    </g>
+                </svg>
+                <div class="spider-hero__content">
+                    <p class="hero-eyebrow">🕷️ Species Database</p>
+                    <h2>Know Your Spiders</h2>
+                    <p class="hero-sub">From the world's most venomous to the tiny spider hiding in your basement — explore the spiders that share our planet.</p>
+                </div>
+            </section>
+
+            <!-- ── FILTERS ───────────────────────────────── -->
+            <section class="filter-bar" id="filter-bar">
+                <div class="filter-group">
+                    <span class="filter-label">Region</span>
+                    <div class="filter-btns" role="group">
+                        <button class="filter-btn active" data-filter="region" data-value="all"       onclick="applyFilter(this)">All</button>
+                        <button class="filter-btn"        data-filter="region" data-value="asia"      onclick="applyFilter(this)">🌏 Asia</button>
+                        <button class="filter-btn"        data-filter="region" data-value="europe"    onclick="applyFilter(this)">🏰 Europe</button>
+                        <button class="filter-btn"        data-filter="region" data-value="america"   onclick="applyFilter(this)">🌎 America</button>
+                        <button class="filter-btn"        data-filter="region" data-value="africa"    onclick="applyFilter(this)">🌍 Africa</button>
+                        <button class="filter-btn"        data-filter="region" data-value="australia" onclick="applyFilter(this)">🦘 Australia</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Danger</span>
+                    <div class="filter-btns" role="group">
+                        <button class="filter-btn active" data-filter="danger" data-value="all"      onclick="applyFilter(this)">All</button>
+                        <button class="filter-btn"        data-filter="danger" data-value="extreme"  onclick="applyFilter(this)">☠ Extreme</button>
+                        <button class="filter-btn"        data-filter="danger" data-value="high"     onclick="applyFilter(this)">⚠ High</button>
+                        <button class="filter-btn"        data-filter="danger" data-value="moderate" onclick="applyFilter(this)">◆ Moderate</button>
+                        <button class="filter-btn"        data-filter="danger" data-value="low"      onclick="applyFilter(this)">● Low</button>
+                        <button class="filter-btn"        data-filter="danger" data-value="none"     onclick="applyFilter(this)">○ Safe</button>
+                    </div>
+                </div>
+                <div class="filter-count"><span id="visible-count">18</span> spiders shown</div>
+            </section>
+
+            <!-- ── SPIDER GRID ────────────────────────────── -->
+            <section class="spider-grid-section">
+                <div class="spider-grid" id="spider-grid">
+
+                    <!-- Black Widow -->
+                    <article class="spider-card" data-region="america" data-danger="high" data-id="black-widow" onclick="openModal('black-widow')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_blackwidow.jpg" alt="Black Widow"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--high">⚠ HIGH</span>
+                            </div>
+                            <h3 class="card-name">Black Widow</h3>
+                            <p class="card-sci">Latrodectus mactans</p>
+                            <p class="card-desc">Shiny black with a red hourglass on the abdomen. Venom 15× stronger than a rattlesnake ounce-for-ounce.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Brown Recluse -->
+                    <article class="spider-card" data-region="america" data-danger="high" data-id="brown-recluse" onclick="openModal('brown-recluse')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_brownrecluse.jpg" alt="Brown Recluse"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--high">⚠ HIGH</span>
+                            </div>
+                            <h3 class="card-name">Brown Recluse</h3>
+                            <p class="card-sci">Loxosceles reclusa</p>
+                            <p class="card-desc">Identified by its violin-shaped marking. Its necrotic venom destroys tissue at the bite site — often painless at first.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Wolf Spider -->
+                    <article class="spider-card" data-region="america" data-danger="low" data-id="wolf-spider" onclick="openModal('wolf-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_wolf.jpg" alt="Wolf Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--low">● LOW</span>
+                            </div>
+                            <h3 class="card-name">Wolf Spider</h3>
+                            <p class="card-sci">Family Lycosidae</p>
+                            <p class="card-desc">Solitary hunter that stalks prey on foot. Females carry spiderlings on their backs — one of the few spiders to show maternal care.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- American Tarantula -->
+                    <article class="spider-card" data-region="america" data-danger="low" data-id="tarantula" onclick="openModal('tarantula')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_tarantula.jpg" alt="American Tarantula"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--low">● LOW</span>
+                            </div>
+                            <h3 class="card-name">American Tarantula</h3>
+                            <p class="card-sci">Aphonopelma spp.</p>
+                            <p class="card-desc">Slow-moving desert dweller. Females can live over 20 years. Bite is painful but no confirmed human deaths.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Jumping Spider -->
+                    <article class="spider-card" data-region="america" data-danger="none" data-id="jumping-spider" onclick="openModal('jumping-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_jumping.jpg" alt="Jumping Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">Jumping Spider</h3>
+                            <p class="card-sci">Family Salticidae</p>
+                            <p class="card-desc">The best vision of any spider — can spot movement 45 cm away. Males perform elaborate courtship dances for females.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Brazilian Wandering Spider -->
+                    <article class="spider-card" data-region="america" data-danger="extreme" data-id="wandering-spider" onclick="openModal('wandering-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_wandering.jpg" alt="Brazilian Wandering Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--extreme">☠ EXTREME</span>
+                            </div>
+                            <h3 class="card-name">Brazilian Wandering Spider</h3>
+                            <p class="card-sci">Phoneutria spp.</p>
+                            <p class="card-desc">Guinness World Records' most venomous spider. Aggressive, large, and found in banana shipments worldwide.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Goliath Birdeater -->
+                    <article class="spider-card" data-region="america" data-danger="moderate" data-id="goliath" onclick="openModal('goliath')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_goliath.jpg" alt="Goliath Birdeater"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--america">🌎 America</span>
+                                <span class="badge badge--moderate">◆ MODERATE</span>
+                            </div>
+                            <h3 class="card-name">Goliath Birdeater</h3>
+                            <p class="card-sci">Theraphosa blondi</p>
+                            <p class="card-desc">The world's largest spider by mass — up to 30 cm leg span. Makes a hissing sound by rubbing its legs when threatened.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- European Garden Spider -->
+                    <article class="spider-card" data-region="europe" data-danger="none" data-id="garden-spider" onclick="openModal('garden-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_garden.jpg" alt="European Garden Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--europe">🏰 Europe</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">European Garden Spider</h3>
+                            <p class="card-sci">Araneus diadematus</p>
+                            <p class="card-desc">The iconic orb-weaver with a white cross pattern. Rebuilds its entire web every single day to maintain its efficiency.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Med Black Widow -->
+                    <article class="spider-card" data-region="europe" data-danger="high" data-id="med-widow" onclick="openModal('med-widow')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_medwidow.jpg" alt="Mediterranean Black Widow"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--europe">🏰 Europe</span>
+                                <span class="badge badge--high">⚠ HIGH</span>
+                            </div>
+                            <h3 class="card-name">Mediterranean Black Widow</h3>
+                            <p class="card-sci">Latrodectus tredecimguttatus</p>
+                            <p class="card-desc">Europe's most dangerous spider. Found in fields and vineyards across southern Europe. Identified by 13 red spots.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Six-Eyed Sand Spider -->
+                    <article class="spider-card" data-region="africa" data-danger="extreme" data-id="sand-spider" onclick="openModal('sand-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_sandspi.jpg" alt="Six-Eyed Sand Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--africa">🌍 Africa</span>
+                                <span class="badge badge--extreme">☠ EXTREME</span>
+                            </div>
+                            <h3 class="card-name">Six-Eyed Sand Spider</h3>
+                            <p class="card-sci">Sicarius hahni</p>
+                            <p class="card-desc">Buries itself in sand and waits for months. One of the most potent venoms of any spider — no antivenom exists.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Golden Silk Orb-Weaver -->
+                    <article class="spider-card" data-region="africa" data-danger="none" data-id="orb-weaver" onclick="openModal('orb-weaver')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_orbweaver.jpg" alt="Golden Silk Orb-Weaver"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--africa">🌍 Africa</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">Golden Silk Orb-Weaver</h3>
+                            <p class="card-sci">Nephila spp.</p>
+                            <p class="card-desc">Spins webs over 1 metre wide using literal golden silk — one of the strongest natural materials ever studied.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Sydney Funnel-Web -->
+                    <article class="spider-card" data-region="australia" data-danger="extreme" data-id="funnel-web" onclick="openModal('funnel-web')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_funnelweb.jpg" alt="Sydney Funnel-Web"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--australia">🦘 Australia</span>
+                                <span class="badge badge--extreme">☠ EXTREME</span>
+                            </div>
+                            <h3 class="card-name">Sydney Funnel-Web</h3>
+                            <p class="card-sci">Atrax robustus</p>
+                            <p class="card-desc">Guinness World Records' most dangerous spider. Kills in under 15 minutes if untreated. Zero deaths since 1981 antivenom.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Redback Spider -->
+                    <article class="spider-card" data-region="australia" data-danger="high" data-id="redback" onclick="openModal('redback')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_redback.jpg" alt="Redback Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--australia">🦘 Australia</span>
+                                <span class="badge badge--high">⚠ HIGH</span>
+                            </div>
+                            <h3 class="card-name">Redback Spider</h3>
+                            <p class="card-sci">Latrodectus hasselti</p>
+                            <p class="card-desc">Australia's black widow. Up to 10,000 bites per year. Recognised by its vivid red stripe on the black abdomen.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Huntsman -->
+                    <article class="spider-card" data-region="australia" data-danger="low" data-id="huntsman" onclick="openModal('huntsman')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_huntsman.jpg" alt="Huntsman Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--australia">🦘 Australia</span>
+                                <span class="badge badge--low">● LOW</span>
+                            </div>
+                            <h3 class="card-name">Huntsman Spider</h3>
+                            <p class="card-sci">Family Sparassidae</p>
+                            <p class="card-desc">Terrifying to encounter on a car visor — but completely harmless and actually eats household pests. Leg span up to 15 cm.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Peacock Spider -->
+                    <article class="spider-card" data-region="australia" data-danger="none" data-id="peacock" onclick="openModal('peacock')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_peacock.jpg" alt="Peacock Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--australia">🦘 Australia</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">Peacock Spider</h3>
+                            <p class="card-sci">Maratus spp.</p>
+                            <p class="card-desc">Tiny but breathtaking. Males raise an iridescent fan and dance to attract females. Completely harmless to humans.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Joro Spider -->
+                    <article class="spider-card" data-region="asia" data-danger="none" data-id="joro" onclick="openModal('joro')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_joro.jpg" alt="Joro Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--asia">🌏 Asia</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">Joro Spider</h3>
+                            <p class="card-sci">Trichonephila clavata</p>
+                            <p class="card-desc">Bright yellow-striped orb-weaver from East Asia. Builds massive webs and is completely harmless to humans.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Chinese Bird Spider -->
+                    <article class="spider-card" data-region="asia" data-danger="high" data-id="bird-spider" onclick="openModal('bird-spider')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_chinesebird.jpg" alt="Chinese Bird Spider"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--asia">🌏 Asia</span>
+                                <span class="badge badge--high">⚠ HIGH</span>
+                            </div>
+                            <h3 class="card-name">Chinese Bird Spider</h3>
+                            <p class="card-sci">Haplopelma spp.</p>
+                            <p class="card-desc">Aggressive tarantula found in Southeast Asia. Fast-moving with medically significant venom.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                    <!-- Golden Orb-Weaver (Asia) -->
+                    <article class="spider-card" data-region="asia" data-danger="none" data-id="asian-orb" onclick="openModal('asian-orb')">
+                        <div class="card-img">
+                            <img src="../asset/images/spider_asian_orb.jpg" alt="Golden Orb-Weaver"
+                                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="card-img-fallback"><span>🕷️</span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-badges">
+                                <span class="badge badge--asia">🌏 Asia</span>
+                                <span class="badge badge--none">○ NONE</span>
+                            </div>
+                            <h3 class="card-name">Golden Orb-Weaver</h3>
+                            <p class="card-sci">Nephila pilipes</p>
+                            <p class="card-desc">Huge web-spinning spider found in Southeast Asia. Produces incredibly strong golden silk.</p>
+                            <span class="card-cta">View Details →</span>
+                        </div>
+                    </article>
+
+                </div><!-- /.spider-grid -->
+
+                <p class="no-results" id="no-results" style="display:none">No spiders match your filters. Try adjusting the selection above.</p>
+            </section>
+
+            <!-- ── HOUSEHOLD SPIDERS ──────────────────────── -->
+            <section class="household-section">
+                <div class="household-inner">
+                    <div class="household-header">
+                        <h3>🏠 Common Household Spiders</h3>
+                        <p>These are the spiders most likely sharing your home right now. Most are completely harmless and actually help by eating pest insects.</p>
+                    </div>
+                    <div class="house-grid">
+
+                        <div class="house-card">
+                            <div class="house-card__icon">🕷️</div>
+                            <div class="house-card__info">
+                                <h4>Common House Spider</h4>
+                                <p class="house-sci">Parasteatoda tepidariorum</p>
+                                <p>Builds messy cobwebs in corners, windows, and behind furniture. Found worldwide. Non-aggressive and completely harmless.</p>
+                                <div class="house-tags">
+                                    <span>Corners &amp; ceilings</span>
+                                    <span>Worldwide</span>
+                                    <span class="safe-tag">○ Harmless</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="house-card">
+                            <div class="house-card__icon">🕷️</div>
+                            <div class="house-card__info">
+                                <h4>Cellar Spider (Daddy Long-Legs)</h4>
+                                <p class="house-sci">Pholcus phalangioides</p>
+                                <p>Extremely long, thin legs and a tiny body. Vibrates rapidly in its web when disturbed. Feeds on other spiders, including redbacks.</p>
+                                <div class="house-tags">
+                                    <span>Basements &amp; corners</span>
+                                    <span>Worldwide</span>
+                                    <span class="safe-tag">○ Harmless</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="house-card">
+                            <div class="house-card__icon">🕷️</div>
+                            <div class="house-card__info">
+                                <h4>Yellow Sac Spider</h4>
+                                <p class="house-sci">Cheiracanthium spp.</p>
+                                <p>Pale yellow or beige; builds a small silk tube retreat in corners and folds of fabric. Most common spider to bite humans indoors.</p>
+                                <div class="house-tags">
+                                    <span>Walls &amp; fabrics</span>
+                                    <span>North America, Europe</span>
+                                    <span class="warn-tag">● Low Risk</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="house-card">
+                            <div class="house-card__icon">🕷️</div>
+                            <div class="house-card__info">
+                                <h4>Garden Spider</h4>
+                                <p class="house-sci">Argiope aurantia</p>
+                                <p>Large, striking black and yellow patterned spider. Builds perfect orb webs with a distinctive zigzag silk band through the centre.</p>
+                                <div class="house-tags">
+                                    <span>Gardens &amp; hedges</span>
+                                    <span>North America, Europe</span>
+                                    <span class="safe-tag">○ Harmless</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ===== MODAL ===== -->
+        <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+            <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+                <div class="modal-img-wrap">
+                    <img id="modal-img" src="" alt="">
+                    <div class="modal-img-fallback" id="modal-img-fallback"><span>🕷️</span></div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-badges" id="modal-badges"></div>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <p class="modal-sci" id="modal-sci"></p>
+                    <div class="modal-fields" id="modal-fields"></div>
+                    <div class="modal-funfact" id="modal-funfact"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 SpiderWeb. All rights reserved.</p>
+        </footer>
+
+        <script src="../js/script.js"></script>
+        <script src="../js/spider.js"></script>
+
+        <!-- Hamburger menu script -->
+        <script>
+            const hamburger = document.getElementById('hamburger');
+            const nav       = document.getElementById('nav');
+            const regionDd  = document.getElementById('region-dropdown');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                nav.classList.toggle('open');
+                document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+            });
+
+            if (regionDd) {
+                regionDd.querySelector('a').addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        regionDd.classList.toggle('open');
+                    }
+                });
+            }
+
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768 && !link.classList.contains('caret')) {
+                        hamburger.classList.remove('open');
+                        nav.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('open') &&
+                    !nav.contains(e.target) &&
+                    !hamburger.contains(e.target)) {
+                    hamburger.classList.remove('open');
+                    nav.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        </script>
 
     </body>
 </html>

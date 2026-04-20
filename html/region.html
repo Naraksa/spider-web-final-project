@@ -1,34 +1,593 @@
 <!DOCTYPE html>
-<html lang="en">   
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Spider Web</title>
-        <link rel="stylesheet" href="/css/style.css">
+        <title>SpiderWeb – Regions</title>
+        <link rel="stylesheet" href="../css/style.css">   
     </head>
     <body>
         <header>
             <h1>SpiderWeb</h1>
             <nav>
+                <img src="/asset/images/widget.png" alt="Menu" id="menu-btn" width="50px">
                 <ul>
                     <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
                     <li><a href="spider.html">Spider</a></li>
                     <li class="dropdown">
                         <a href="region.html" class="caret">Region</a>
                         <ul class="dropdown-content">
-                            <li><a href="/regions/asia">Asia</a></li>
-                            <li><a href="/regions/europe">Europe</a></li>
-                            <li><a href="/regions/america">America</a></li>
-                            <li><a href="/regions/africa">Africa</a></li>
-                            <li><a href="/regions/australia">Australia</a></li>
+                            <li><a href="#" onclick="switchRegion('asia');return false;">Asia</a></li>
+                            <li><a href="#" onclick="switchRegion('europe');return false;">Europe</a></li>
+                            <li><a href="#" onclick="switchRegion('america');return false;">America</a></li>
+                            <li><a href="#" onclick="switchRegion('africa');return false;">Africa</a></li>
+                            <li><a href="#" onclick="switchRegion('australia');return false;">Australia</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
+        <main class="region-main">
+
+            <!-- ── HERO ─────────────────────────────────────────── -->
+            <section class="region-hero">
+                <!-- SVG web decoration -->
+                <svg class="hero-web hero-web--left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g stroke="rgba(255,255,255,0.18)" stroke-width="0.8" fill="none">
+                        <line x1="0" y1="0" x2="200" y2="200"/>
+                        <line x1="0" y1="0" x2="100" y2="200"/>
+                        <line x1="0" y1="0" x2="0"   y2="200"/>
+                        <line x1="0" y1="0" x2="200" y2="100"/>
+                        <line x1="0" y1="0" x2="200" y2="0"/>
+                        <circle cx="0" cy="0" r="40"/>
+                        <circle cx="0" cy="0" r="80"/>
+                        <circle cx="0" cy="0" r="120"/>
+                        <circle cx="0" cy="0" r="160"/>
+                        <circle cx="0" cy="0" r="200"/>
+                    </g>
+                </svg>
+                <svg class="hero-web hero-web--right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g stroke="rgba(255,255,255,0.18)" stroke-width="0.8" fill="none">
+                        <line x1="200" y1="0" x2="0"   y2="200"/>
+                        <line x1="200" y1="0" x2="100" y2="200"/>
+                        <line x1="200" y1="0" x2="200" y2="200"/>
+                        <line x1="200" y1="0" x2="0"   y2="100"/>
+                        <line x1="200" y1="0" x2="0"   y2="0"/>
+                        <circle cx="200" cy="0" r="40"/>
+                        <circle cx="200" cy="0" r="80"/>
+                        <circle cx="200" cy="0" r="120"/>
+                        <circle cx="200" cy="0" r="160"/>
+                        <circle cx="200" cy="0" r="200"/>
+                    </g>
+                </svg>
+                <div class="region-hero__content">
+                    <p class="hero-eyebrow">🌐 Global Exploration</p>
+                    <h2>Spider Regions</h2>
+                    <p class="hero-sub">From the Amazon jungle floor to Australian suburbs — discover the spiders that rule every corner of the Earth.</p>
+                </div>
+            </section>
+
+            <!-- ── REGION TABS ───────────────────────────────────── -->
+            <nav class="region-tabs" role="tablist" aria-label="Select a region">
+                <button class="tab-btn active" data-region="asia"      onclick="switchRegion('asia')"      role="tab">
+                    <span class="tab-label">Asia</span>
+                </button>
+                <button class="tab-btn"        data-region="europe"    onclick="switchRegion('europe')"    role="tab">
+                    <span class="tab-label">Europe</span>
+                </button>
+                <button class="tab-btn"        data-region="america"   onclick="switchRegion('america')"   role="tab">
+                    <span class="tab-label">America</span>
+                </button>
+                <button class="tab-btn"        data-region="africa"    onclick="switchRegion('africa')"    role="tab">
+                    <span class="tab-label">Africa</span>
+                </button>
+                <button class="tab-btn"        data-region="australia" onclick="switchRegion('australia')" role="tab">
+                    <span class="tab-label">Australia</span>
+                </button>
+            </nav>
+
+
+            <!-- ── FAST FACTS BAR ────────────────────────────────── -->
+            <div class="facts-bar" id="facts-bar">
+                <div class="fact-item">
+                    <span class="fact-num" id="fact-species">—</span>
+                    <span class="fact-lbl">Known Species</span>
+                </div>
+                <div class="fact-divider"></div>
+                <div class="fact-item">
+                    <span class="fact-num" id="fact-climate">—</span>
+                    <span class="fact-lbl">Climate Type</span>
+                </div>
+                <div class="fact-divider"></div>
+                <div class="fact-item">
+                    <span class="fact-num" id="fact-danger">—</span>
+                    <span class="fact-lbl">Most Dangerous</span>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!--  REGION PANELS                                                -->
+            <!-- ============================================================ -->
+
+            <!-- ── ASIA ──────────────────────────────────────────────────── -->
+            <section class="region-panel active" id="panel-asia" data-region="asia">
+
+                <div class="region-banner region-banner--asia">
+                    <div class="region-banner__text">
+                        <h3>Asia &amp; Southeast Asia</h3>
+                        <p>Rainforests, rice paddies, and ancient jungle floors</p>
+                    </div>
+                </div>
+
+                <div class="region-body">
+
+                    <!-- Overview -->
+                    <div class="region-overview reveal">
+                        <h4>About This Region</h4>
+                        <p>Asia is the world's largest continent, spanning environments from the freezing Himalayas to the humid tropical rainforests of Southeast Asia — covering Thailand, Cambodia, Vietnam, Indonesia, and Malaysia. The warm, dense jungles of Southeast Asia are among the richest biodiversity hotspots on Earth, supporting spiders adapted to every layer of the forest: from ancient trapdoor species unchanged for 300 million years to vivid orb-weavers stringing golden webs between bamboo stalks.</p>
+                        <div class="env-cards">
+                            <div class="env-card"><span>🌡️</span><strong>Climate</strong><p>Tropical, monsoon, temperate, alpine</p></div>
+                            <div class="env-card"><span>🌿</span><strong>Habitat</strong><p>Tropical rainforest, rice paddies, bamboo forests, mountain caves</p></div>
+                            <div class="env-card"><span>🕷️</span><strong>Known Species</strong><p>10,000+ documented across Asia</p></div>
+                            <div class="env-card"><span>💡</span><strong>Notable Fact</strong><p>Liphistiidae spiders found only in SE Asia are living fossils — their segmented abdomens are unchanged from 300 million years ago</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Spotlight -->
+                    <div class="spotlight reveal">
+                        <div class="spotlight__badge">🌟 Region Spotlight</div>
+                        <div class="spotlight__inner">
+                            <div class="spotlight__img">
+                                <img src="../asset/images/spider_joro.jpg" alt="Joro Spider"
+                                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span></div>
+                            </div>
+                            <div class="spotlight__info">
+                                <p class="spotlight__label">Most Recognised</p>
+                                <h5>Joro Spider</h5>
+                                <p class="spotlight__sci"><em>Trichonephila clavata</em></p>
+                                <p class="spotlight__desc">Native to East Asia, the Joro Spider has become a media sensation since it established itself as an invasive species across the southeastern US. Females grow up to 8 cm leg span and build enormous golden webs. Despite their striking appearance, they pose virtually no danger to humans.</p>
+                                <div class="spotlight__tags">
+                                    <span class="stag stag--region">🌏 East Asia</span>
+                                    <span class="stag stag--safe">○ No Danger</span>
+                                    <span class="stag stag--fact">Invasive in USA since 2014</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slideshow -->
+                    <div class="region-slideshow-wrap reveal">
+                        <h4>Gallery</h4>
+                        <div class="slideshow" id="slideshow-asia">
+                            <div class="slide active">
+                                <img src="../asset/images/spider_joro.jpg" alt="Joro Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Joro Spider<br><em>Trichonephila clavata</em></p></div>
+                                <p class="slide-caption">Joro Spider — native to East Asia, now spreading through the eastern US</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_chinesebird.jpg" alt="Chinese Bird Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Chinese Bird Spider<br><em>Haplopelma schmidti</em></p></div>
+                                <p class="slide-caption">Chinese Bird Spider — aggressive tarantula of Southeast Asian forests</p>
+                            </div>
+                            <div class="slide">
+                                <img src="../asset/images/spider_ornamental.jpg" alt="Ornamental Tarantula" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Ornamental Tarantula<br><em>Poecilotheria ornata</em></p></div>
+                                <p class="slide-caption">Ornamental Tarantula — critically endangered, native to Sri Lanka</p>
+                            </div>
+                            <button class="slide-btn slide-prev" onclick="changeSlide('asia',-1)" aria-label="Previous">&#10094;</button>
+                            <button class="slide-btn slide-next" onclick="changeSlide('asia', 1)" aria-label="Next">&#10095;</button>
+                            <div class="slide-progress" id="progress-asia"><div class="slide-progress-bar" id="progress-bar-asia"></div></div>
+                            <div class="slide-dots" id="dots-asia">
+                                <span class="dot active" onclick="goToSlide('asia',0)"></span>
+                                <span class="dot"        onclick="goToSlide('asia',1)"></span>
+                                <span class="dot"        onclick="goToSlide('asia',2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frequency Table -->
+                    <div class="region-table-wrap reveal">
+                        <h4>Spider Frequency in Asia</h4>
+                        <div class="table-scroll">
+                            <table class="spider-table">
+                                <thead><tr><th>Spider</th><th>Scientific Name</th><th>Frequency</th><th>Primary Habitat</th><th>Danger</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Chinese Bird Spider</td><td><em>Haplopelma schmidti</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>Tropical forest floors — Vietnam, Laos, Cambodia</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Joro Spider</td><td><em>Trichonephila clavata</em></td><td><span class="freq freq--common">Common</span></td><td>Forests, gardens, roadsides — Japan, China, Korea</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Jumping Spiders</td><td><em>Family Salticidae</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Nationwide across all habitats</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Ornamental Tarantula</td><td><em>Poecilotheria ornata</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>India, Sri Lanka — rainforest canopy trees</td><td><span class="danger danger--moderate">MODERATE</span></td></tr>
+                                    <tr><td>Signature Spider</td><td><em>Argiope aemula</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Tropical Asia, gardens, rice fields</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Liphistius (Trapdoor)</td><td><em>Liphistius spp.</em></td><td><span class="freq freq--rare">Rare</span></td><td>Forest soils and caves — SE Asia only</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── EUROPE ─────────────────────────────────────────── -->
+            <section class="region-panel" id="panel-europe" data-region="europe">
+
+                <div class="region-banner region-banner--europe">
+                    <div class="region-banner__text">
+                        <h3>Europe</h3>
+                        <p>Ancient forests, misty meadows, and Gothic stonework</p>
+                    </div>
+                </div>
+
+                <div class="region-body">
+
+                    <div class="region-overview reveal">
+                        <h4>About This Region</h4>
+                        <p>Europe spans from the cold tundra of Scandinavia to the sun-baked Mediterranean coast. With over 5,775 documented species, it hosts a wide variety of arachnids — the vast majority completely harmless. A small number in southern Europe carry medically significant venom, particularly around the Mediterranean basin. Europe is also home to one of the world's most unique spiders: the Water Spider, the only species on Earth that lives entirely underwater in a self-constructed silk diving bell.</p>
+                        <div class="env-cards">
+                            <div class="env-card"><span>🌡️</span><strong>Climate</strong><p>Oceanic, continental, Mediterranean, boreal/tundra</p></div>
+                            <div class="env-card"><span>🌿</span><strong>Habitat</strong><p>Temperate forests, meadows, gardens, caves, rocky coastline</p></div>
+                            <div class="env-card"><span>🕷️</span><strong>Known Species</strong><p>5,775+ documented (Araneae Database, 2026)</p></div>
+                            <div class="env-card"><span>💡</span><strong>Notable Fact</strong><p>The Water Spider (<em>Argyroneta aquatica</em>) is the only spider in the world that lives entirely underwater, breathing from a silk diving bell</p></div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight reveal">
+                        <div class="spotlight__badge">🌟 Region Spotlight</div>
+                        <div class="spotlight__inner">
+                            <div class="spotlight__img">
+                                <img src="../asset/images/spider_european.jpg" alt="European Garden Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span></div>
+                            </div>
+                            <div class="spotlight__info">
+                                <p class="spotlight__label">Most Recognised</p>
+                                <h5>European Garden Spider</h5>
+                                <p class="spotlight__sci"><em>Araneus diadematus</em></p>
+                                <p class="spotlight__desc">The most iconic spider of Europe, recognisable by the white cross-shaped pattern of dots on its plump abdomen. It rebuilds its orb web completely every single day, often consuming the old silk to recycle its proteins. Its white markings are caused by deposits of the chemical guanine — not paint.</p>
+                                <div class="spotlight__tags">
+                                    <span class="stag stag--region">🏰 Europe</span>
+                                    <span class="stag stag--safe">○ No Danger</span>
+                                    <span class="stag stag--fact">Rebuilds web daily</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-slideshow-wrap reveal">
+                        <h4>Gallery</h4>
+                        <div class="slideshow" id="slideshow-europe">
+                            <div class="slide active">
+                                <img src="../asset/images/spider_european.jpg" alt="European Garden Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>European Garden Spider<br><em>Araneus diadematus</em></p></div>
+                                <p class="slide-caption">European Garden Spider — the iconic white-cross orb-weaver of European gardens</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_waterspider.jpg" alt="Water Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Water Spider<br><em>Argyroneta aquatica</em></p></div>
+                                <p class="slide-caption">Water Spider — the world's only fully aquatic spider species</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_blackwidow.jpg" alt="Mediterranean Black Widow" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Mediterranean Black Widow<br><em>Latrodectus tredecimguttatus</em></p></div>
+                                <p class="slide-caption">Mediterranean Black Widow — found in southern European fields and vineyards</p>
+                            </div>
+                            <button class="slide-btn slide-prev" onclick="changeSlide('europe',-1)" aria-label="Previous">&#10094;</button>
+                            <button class="slide-btn slide-next" onclick="changeSlide('europe', 1)" aria-label="Next">&#10095;</button>
+                            <div class="slide-progress" id="progress-europe"><div class="slide-progress-bar" id="progress-bar-europe"></div></div>
+                            <div class="slide-dots" id="dots-europe">
+                                <span class="dot active" onclick="goToSlide('europe',0)"></span>
+                                <span class="dot"        onclick="goToSlide('europe',1)"></span>
+                                <span class="dot"        onclick="goToSlide('europe',2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-table-wrap reveal">
+                        <h4>Spider Frequency in Europe</h4>
+                        <div class="table-scroll">
+                            <table class="spider-table">
+                                <thead><tr><th>Spider</th><th>Scientific Name</th><th>Frequency</th><th>Primary Habitat</th><th>Danger</th></tr></thead>
+                                <tbody>
+                                    <tr><td>European Garden Spider</td><td><em>Araneus diadematus</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Gardens, parks, hedgerows, forest edges</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Cellar Spider</td><td><em>Pholcus phalangioides</em></td><td><span class="freq freq--vcommon">Ubiquitous</span></td><td>Indoors — basements, corners, ceilings</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Wolf Spider (Tarantula)</td><td><em>Lycosa tarantula</em></td><td><span class="freq freq--common">Common</span></td><td>Mediterranean dry scrubland, grassland</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                    <tr><td>Mediterranean Black Widow</td><td><em>Latrodectus tredecimguttatus</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>Southern Europe, wheat fields, vineyards</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Mediterranean Recluse</td><td><em>Loxosceles rufescens</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>Mediterranean region, caves, buildings</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Water Spider</td><td><em>Argyroneta aquatica</em></td><td><span class="freq freq--rare">Rare</span></td><td>Freshwater ponds, slow streams, bogs</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── AMERICA ────────────────────────────────────────── -->
+            <section class="region-panel" id="panel-america" data-region="america">
+
+                <div class="region-banner region-banner--america">
+                    <div class="region-banner__text">
+                        <h3>The Americas</h3>
+                        <p>From desert badlands to the depths of the Amazon</p>
+                    </div>
+                </div>
+
+                <div class="region-body">
+
+                    <div class="region-overview reveal">
+                        <h4>About This Region</h4>
+                        <p>The Americas span two continents with radically different environments — North America's varied climates from arctic tundra to subtropical Florida, and South America's vast Amazon Rainforest, the Andes mountain range, and the bone-dry Atacama Desert. Together they are home to some of the world's most celebrated and feared spiders, including the largest spider on Earth by mass and the species widely considered to have the most dangerous venom of any spider alive.</p>
+                        <div class="env-cards">
+                            <div class="env-card"><span>🌡️</span><strong>Climate</strong><p>Arid desert, temperate forest, tropical rainforest, subtropical grassland</p></div>
+                            <div class="env-card"><span>🌿</span><strong>Habitat</strong><p>Amazon basin, North American deserts, prairie grasslands, humid coastal forests</p></div>
+                            <div class="env-card"><span>🕷️</span><strong>Known Species</strong><p>~3,700 in North America; 5,000+ in South America</p></div>
+                            <div class="env-card"><span>⚠️</span><strong>Notable Fact</strong><p>Home to both the world's largest spider (Goliath Birdeater) and the world's most venomous (Brazilian Wandering Spider)</p></div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight reveal">
+                        <div class="spotlight__badge">🌟 Region Spotlight</div>
+                        <div class="spotlight__inner">
+                            <div class="spotlight__img">
+                                <img src="../asset/images/spider_black.jpg" alt="Black Widow" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span></div>
+                            </div>
+                            <div class="spotlight__info">
+                                <p class="spotlight__label">Most Recognised</p>
+                                <h5>Black Widow</h5>
+                                <p class="spotlight__sci"><em>Latrodectus mactans</em></p>
+                                <p class="spotlight__desc">Perhaps the most famous spider in the world, the Black Widow is instantly recognisable by its shiny black body and the red hourglass marking on the underside of its abdomen. Its neurotoxic venom is 15 times more potent than a rattlesnake's ounce for ounce — yet fatalities are extremely rare thanks to widely available antivenom and the spider's non-aggressive nature.</p>
+                                <div class="spotlight__tags">
+                                    <span class="stag stag--region">🌎 North America</span>
+                                    <span class="stag stag--danger">⚠ High Danger</span>
+                                    <span class="stag stag--fact">2,500+ bites/year in the US</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-slideshow-wrap reveal">
+                        <h4>Gallery</h4>
+                        <div class="slideshow" id="slideshow-america">
+                            <div class="slide active">
+                                <img src="../asset/images/spider_black.jpg" alt="Black Widow" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Black Widow<br><em>Latrodectus mactans</em></p></div>
+                                <p class="slide-caption">Black Widow — one of North America's most iconic venomous spiders</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_goliath.jpg" alt="Goliath Birdeater" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Goliath Birdeater<br><em>Theraphosa blondi</em></p></div>
+                                <p class="slide-caption">Goliath Birdeater — the world's largest spider by mass, from the Amazon</p>
+                            </div>
+                            <div class="slide">
+                                <img src="../asset/images/spider_wandering.jpg" alt="Brazilian Wandering Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Brazilian Wandering Spider<br><em>Phoneutria spp.</em></p></div>
+                                <p class="slide-caption">Brazilian Wandering Spider — Guinness World Records' most venomous spider</p>
+                            </div>
+                            <button class="slide-btn slide-prev" onclick="changeSlide('america',-1)" aria-label="Previous">&#10094;</button>
+                            <button class="slide-btn slide-next" onclick="changeSlide('america', 1)" aria-label="Next">&#10095;</button>
+                            <div class="slide-progress" id="progress-america"><div class="slide-progress-bar" id="progress-bar-america"></div></div>
+                            <div class="slide-dots" id="dots-america">
+                                <span class="dot active" onclick="goToSlide('america',0)"></span>
+                                <span class="dot"        onclick="goToSlide('america',1)"></span>
+                                <span class="dot"        onclick="goToSlide('america',2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-table-wrap reveal">
+                        <h4>Spider Frequency in the Americas</h4>
+                        <div class="table-scroll">
+                            <table class="spider-table">
+                                <thead><tr><th>Spider</th><th>Scientific Name</th><th>Frequency</th><th>Primary Habitat</th><th>Danger</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Black Widow</td><td><em>Latrodectus mactans</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>South/West USA, grasslands, urban structures</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Brown Recluse</td><td><em>Loxosceles reclusa</em></td><td><span class="freq freq--common">Common</span></td><td>South-Central USA, indoors, storage areas</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Wolf Spider</td><td><em>Family Lycosidae</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Forests, gardens, ground litter — nationwide</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                    <tr><td>American Tarantula</td><td><em>Aphonopelma spp.</em></td><td><span class="freq freq--common">Common</span></td><td>Southwest desert and arid scrubland</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                    <tr><td>Jumping Spider</td><td><em>Family Salticidae</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Outdoor surfaces, windows, tree bark</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Brazilian Wandering Spider</td><td><em>Phoneutria spp.</em></td><td><span class="freq freq--common">Common</span></td><td>Amazon floor, banana plantations</td><td><span class="danger danger--extreme">EXTREME</span></td></tr>
+                                    <tr><td>Goliath Birdeater</td><td><em>Theraphosa blondi</em></td><td><span class="freq freq--common">Common</span></td><td>Amazon rainforest — Venezuela, Brazil, Guyana</td><td><span class="danger danger--moderate">MODERATE</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── AFRICA ──────────────────────────────────────────── -->
+            <section class="region-panel" id="panel-africa" data-region="africa">
+
+                <div class="region-banner region-banner--africa">
+                    <div class="region-banner__text">
+                        <h3>Africa</h3>
+                        <p>Desert sands, open savannas, and equatorial rainforest</p>
+                    </div>
+                </div>
+
+                <div class="region-body">
+
+                    <div class="region-overview reveal">
+                        <h4>About This Region</h4>
+                        <p>Africa is an exceptionally diverse continent — from the Sahara Desert (the world's largest hot desert) in the north, to the lush Congo Rainforest in central Africa, vast savannas in eastern and southern regions, and the ancient Namib and Kalahari deserts in the south. This variety creates a wide range of ecological niches for spiders — from desert ambush hunters that bury themselves in sand for months, to massive savanna tarantulas and brilliant golden orb-weavers spanning webs over a metre wide.</p>
+                        <div class="env-cards">
+                            <div class="env-card"><span>🌡️</span><strong>Climate</strong><p>Desert, savanna, equatorial rainforest, Mediterranean coast</p></div>
+                            <div class="env-card"><span>🌿</span><strong>Habitat</strong><p>Sandy deserts, grassland savanna, tropical rainforest, rocky outcrops</p></div>
+                            <div class="env-card"><span>🕷️</span><strong>Known Species</strong><p>3,000+ documented; many more unnamed in tropical regions</p></div>
+                            <div class="env-card"><span>⚠️</span><strong>Notable Fact</strong><p>The Six-Eyed Sand Spider has one of the most potent venoms on Earth — and no antivenom has ever been developed for it</p></div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight reveal">
+                        <div class="spotlight__badge">🌟 Region Spotlight</div>
+                        <div class="spotlight__inner">
+                            <div class="spotlight__img">
+                                <img src="/asset/images/spider_goldensilk.jpg" alt="Golden Silk Orb-Weaver" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span></div>
+                            </div>
+                            <div class="spotlight__info">
+                                <p class="spotlight__label">Most Recognised</p>
+                                <h5>Golden Silk Orb-Weaver</h5>
+                                <p class="spotlight__sci"><em>Nephila spp.</em></p>
+                                <p class="spotlight__desc">One of the most visually spectacular spiders in the world, the Golden Silk Orb-Weaver spins webs over a metre wide using literal golden-coloured silk — one of the strongest natural materials ever studied. Female bodies can reach 4 cm, while males are tiny. Their silk is so strong that a Madagascan cape woven from it took 4 years and over 1 million spiders to produce.</p>
+                                <div class="spotlight__tags">
+                                    <span class="stag stag--region">🌍 Africa</span>
+                                    <span class="stag stag--safe">○ No Danger</span>
+                                    <span class="stag stag--fact">Silk stronger than steel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-slideshow-wrap reveal">
+                        <h4>Gallery</h4>
+                        <div class="slideshow" id="slideshow-africa">
+                            <div class="slide active">
+                                <img src="../asset/images/spider_sand.jpg" alt="Six-Eyed Sand Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Six-Eyed Sand Spider<br><em>Sicarius hahni</em></p></div>
+                                <p class="slide-caption">Six-Eyed Sand Spider — buries itself in desert sand and waits motionlessly for prey</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_baboon.jpg" alt="Baboon Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Baboon Spider<br><em>Harpactira spp.</em></p></div>
+                                <p class="slide-caption">Baboon Spider — Africa's native tarantula, named for its padded leg tips</p>
+                            </div>
+                            <div class="slide">
+                                <img src="../asset/images/spider_goldensilk.jpg" alt="Golden Silk Orb-Weaver" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Golden Silk Orb-Weaver<br><em>Nephila spp.</em></p></div>
+                                <p class="slide-caption">Golden Silk Orb-Weaver — builds webs over 1 metre wide with literal golden silk</p>
+                            </div>
+                            <button class="slide-btn slide-prev" onclick="changeSlide('africa',-1)" aria-label="Previous">&#10094;</button>
+                            <button class="slide-btn slide-next" onclick="changeSlide('africa', 1)" aria-label="Next">&#10095;</button>
+                            <div class="slide-progress" id="progress-africa"><div class="slide-progress-bar" id="progress-bar-africa"></div></div>
+                            <div class="slide-dots" id="dots-africa">
+                                <span class="dot active" onclick="goToSlide('africa',0)"></span>
+                                <span class="dot"        onclick="goToSlide('africa',1)"></span>
+                                <span class="dot"        onclick="goToSlide('africa',2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-table-wrap reveal">
+                        <h4>Spider Frequency in Africa</h4>
+                        <div class="table-scroll">
+                            <table class="spider-table">
+                                <thead><tr><th>Spider</th><th>Scientific Name</th><th>Frequency</th><th>Primary Habitat</th><th>Danger</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Six-Eyed Sand Spider</td><td><em>Sicarius hahni</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>Namib and Kalahari deserts</td><td><span class="danger danger--extreme">EXTREME</span></td></tr>
+                                    <tr><td>African Button Spider</td><td><em>Latrodectus indistinctus</em></td><td><span class="freq freq--common">Common</span></td><td>Sub-Saharan Africa, under rocks, urban areas</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Baboon Spider</td><td><em>Harpactira spp.</em></td><td><span class="freq freq--common">Common</span></td><td>Savannas, grasslands, east/southern Africa</td><td><span class="danger danger--moderate">MODERATE</span></td></tr>
+                                    <tr><td>Golden Silk Orb-Weaver</td><td><em>Nephila spp.</em></td><td><span class="freq freq--common">Common</span></td><td>Tropical forests, sub-Saharan woodland</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Rain Spider (Huntsman)</td><td><em>Palystes spp.</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Sub-Saharan Africa, forests, homes</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── AUSTRALIA ──────────────────────────────────────── -->
+            <section class="region-panel" id="panel-australia" data-region="australia">
+
+                <div class="region-banner region-banner--australia">
+                    <div class="region-banner__text">
+                        <h3>Australia &amp; Oceania</h3>
+                        <p>The most dangerous spiders on the planet call this home</p>
+                    </div>
+                </div>
+
+                <div class="region-body">
+
+                    <div class="region-overview reveal">
+                        <h4>About This Region</h4>
+                        <p>Australia is arguably the most famous country in the world for dangerous wildlife — and its spiders are no exception. With over 10,000 known spider species, many still undescribed, it hosts the world's officially most dangerous spider and one of the most culturally iconic. Habitats range from tropical Queensland rainforests to the vast arid red centre, and the dense suburban gardens of Sydney where funnel-web spiders wander out after heavy rain — sometimes ending up in backyard swimming pools, where they can survive submerged for over 24 hours.</p>
+                        <div class="env-cards">
+                            <div class="env-card"><span>🌡️</span><strong>Climate</strong><p>Tropical rainforest, arid desert, temperate coastal, alpine</p></div>
+                            <div class="env-card"><span>🌿</span><strong>Habitat</strong><p>Eucalyptus forest, desert scrub, tropical rainforest, urban gardens</p></div>
+                            <div class="env-card"><span>🕷️</span><strong>Known Species</strong><p>10,000+ known — a global hotspot for arachnid diversity</p></div>
+                            <div class="env-card"><span>☠️</span><strong>Notable Fact</strong><p>Sydney Funnel-Web Spider is officially recognised by Guinness World Records as the world's most dangerous spider</p></div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight reveal">
+                        <div class="spotlight__badge">🌟 Region Spotlight</div>
+                        <div class="spotlight__inner">
+                            <div class="spotlight__img">
+                                <img src="../asset/images/spider_funnelweb.jpg" alt="Sydney Funnel-Web" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span></div>
+                            </div>
+                            <div class="spotlight__info">
+                                <p class="spotlight__label">Most Dangerous</p>
+                                <h5>Sydney Funnel-Web Spider</h5>
+                                <p class="spotlight__sci"><em>Atrax robustus</em></p>
+                                <p class="spotlight__desc">Officially the world's most dangerous spider per Guinness World Records. Shiny black, aggressive, and capable of killing a human in under 15 minutes if untreated. Its venom contains over 40 toxic proteins that rapidly overload the nervous system. Yet thanks to an antivenom introduced in 1981, there have been zero recorded deaths from its bite since.</p>
+                                <div class="spotlight__tags">
+                                    <span class="stag stag--region">🦘 Australia</span>
+                                    <span class="stag stag--extreme">☠ Extreme Danger</span>
+                                    <span class="stag stag--fact">No deaths since antivenom (1981)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-slideshow-wrap reveal">
+                        <h4>Gallery</h4>
+                        <div class="slideshow" id="slideshow-australia">
+                            <div class="slide active">
+                                <img src="../asset/images/spider_funnelweb.jpg" alt="Sydney Funnel-Web" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Sydney Funnel-Web<br><em>Atrax robustus</em></p></div>
+                                <p class="slide-caption">Sydney Funnel-Web — the world's most dangerous spider (Guinness World Records)</p>
+                            </div>
+                            <div class="slide">
+                                <img src="/asset/images/spider_redback.jpg" alt="Redback Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Redback Spider<br><em>Latrodectus hasselti</em></p></div>
+                                <p class="slide-caption">Redback Spider — up to 10,000 bites reported every year in Australia</p>
+                            </div>
+                            <div class="slide">
+                                <img src="../asset/images/spider_peacock.jpg" alt="Peacock Spider" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="img-fallback"><span>🕷️</span><p>Peacock Spider<br><em>Maratus spp.</em></p></div>
+                                <p class="slide-caption">Peacock Spider — males perform dazzling iridescent courtship dances</p>
+                            </div>
+                            <button class="slide-btn slide-prev" onclick="changeSlide('australia',-1)" aria-label="Previous">&#10094;</button>
+                            <button class="slide-btn slide-next" onclick="changeSlide('australia', 1)" aria-label="Next">&#10095;</button>
+                            <div class="slide-progress" id="progress-australia"><div class="slide-progress-bar" id="progress-bar-australia"></div></div>
+                            <div class="slide-dots" id="dots-australia">
+                                <span class="dot active" onclick="goToSlide('australia',0)"></span>
+                                <span class="dot"        onclick="goToSlide('australia',1)"></span>
+                                <span class="dot"        onclick="goToSlide('australia',2)"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-table-wrap reveal">
+                        <h4>Spider Frequency in Australia</h4>
+                        <div class="table-scroll">
+                            <table class="spider-table">
+                                <thead><tr><th>Spider</th><th>Scientific Name</th><th>Frequency</th><th>Primary Habitat</th><th>Danger</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Sydney Funnel-Web</td><td><em>Atrax robustus</em></td><td><span class="freq freq--common">Common (Sydney)</span></td><td>Moist gardens, under logs, rock crevices</td><td><span class="danger danger--extreme">EXTREME</span></td></tr>
+                                    <tr><td>Redback Spider</td><td><em>Latrodectus hasselti</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Urban areas, under rocks, outdoor furniture</td><td><span class="danger danger--high">HIGH</span></td></tr>
+                                    <tr><td>Huntsman Spider</td><td><em>Family Sparassidae</em></td><td><span class="freq freq--vcommon">Very Common</span></td><td>Under bark, inside homes and cars</td><td><span class="danger danger--low">LOW</span></td></tr>
+                                    <tr><td>White-Tailed Spider</td><td><em>Lampona cylindrata</em></td><td><span class="freq freq--common">Common</span></td><td>Eastern and southern Australia, inside homes</td><td><span class="danger danger--moderate">MODERATE</span></td></tr>
+                                    <tr><td>Peacock Spider</td><td><em>Maratus spp.</em></td><td><span class="freq freq--moderate">Moderate</span></td><td>Eastern and southwestern Australia, heathland</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                    <tr><td>Golden Orb-Weaver</td><td><em>Nephila plumipes</em></td><td><span class="freq freq--common">Common</span></td><td>Coastal and inland forests, gardens</td><td><span class="danger danger--none">NONE</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 SpiderWeb. All rights reserved.</p>
+        </footer>
+
+        <script src="/js/script.js"></script>
+        <script src="/js/region.js"></script>
     </body>
 </html>

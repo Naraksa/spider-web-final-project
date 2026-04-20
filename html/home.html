@@ -4,16 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Spider Web</title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
         <header>
-            <h1>SpiderWeb</h1>
-            <nav>
+            <h1 data-aos="fade-down" data-aos-delay="200">SpiderWeb</h1>
+            <nav data-aos="fade-down" data-aos-delay="200">
                 <img src="/asset/images/widget.png" alt="Menu" id="menu-btn" width="50px">
                 <ul>
                     <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
                     <li><a href="spider.html">Spider</a></li>
                     <li class="dropdown">
                         <a href="region.html" class="caret">Region</a>
@@ -28,11 +28,9 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-
         </header>
 
         <main>
-
             <video autoplay muted loop width="100%" id="background-video">
                 <source src="/asset/videos/Cute_Spider_Animation_For_Website.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -43,16 +41,28 @@
             </section>
 
             <section class="Hook">
-                <h2>Discover the World of Spiders</h2>
-                <p>Spider Web is your go-to source for all things related to spiders. From fascinating facts to stunning photography, we have it all!</p>
+                <h2 data-aos="fade-up" data-aos-delay="200">Discover the World of Spiders</h2>
+                <p data-aos="fade-up" data-aos-delay="300">Spider Web is your go-to source for all things related to spiders. From fascinating facts to stunning photography, we have it all!</p>
+            </section>
+
+            <section class="highlight">
+                <h2 data-aos="fade-up" data-aos-delay="200">Explore Our Content</h2>
+                <p data-aos="fade-up" data-aos-delay="400"> Dive into our extensive collection of spider-related articles, images, and videos. Learn about different species, their habitats, and unique behaviors.</p>
+
+                <button class="spider-btn" onclick="window.location.href='spider.html'" data-aos="fade-up" data-aos-delay="600">Go to Spiders</button>
+                <button class="region-btn" onclick="window.location.href='region.html'" data-aos="fade-up" data-aos-delay="800">Explore Regions</button>
+
             </section>
         </main>
 
         <footer>
             <p>&copy; 2026 Spider Web. All rights reserved.</p>
-            <p>Contact us at info@spiderweb.com</p>
         </footer>
 
         <script src="/js/script.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>

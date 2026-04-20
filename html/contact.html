@@ -8,8 +8,9 @@
     </head>
     <body>
         <header>
-            <h1>SpiderWeb</h1>
-            <nav>
+            <h1 data-aos="fade-down" data-aos-delay="200">SpiderWeb</h1>
+            <nav data-aos="fade-down" data-aos-delay="200">
+                <img src="/asset/images/widget.png" alt="Menu" id="menu-btn" width="50px">
                 <ul>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -17,34 +18,57 @@
                     <li class="dropdown">
                         <a href="region.html" class="caret">Region</a>
                         <ul class="dropdown-content">
-                            <li><a href="/regions/asia">Asia</a></li>
-                            <li><a href="/regions/europe">Europe</a></li>
-                            <li><a href="/regions/america">America</a></li>
-                            <li><a href="/regions/africa">Africa</a></li>
-                            <li><a href="/regions/australia">Australia</a></li>
+                            <li><a href="#regions/asia">Asia</a></li>
+                            <li><a href="#regions/europe">Europe</a></li>
+                            <li><a href="#regions/america">America</a></li>
+                            <li><a href="#regions/africa">Africa</a></li>
+                            <li><a href="#regions/australia">Australia</a></li>
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-
         </header>
         <main>
             <section class="contact-section">
-                <h2>Contact Us</h2>
-                <p>If you have any questions, suggestions, or just want to say hi, feel free to reach out to us!</p>
-                <form action="/submit_contact" method="post" class="contact-form">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                <h2>Get in Touch</h2>
+                <p>We usually respond within 24 hours</p>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                <form id="contact-form" novalidate>
+                    <div class="field-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Smith" maxlength="80" autocomplete="name">
+                        <span class="err-msg" id="name-err"></span>
+                    </div>
 
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="field-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email">
+                        <span class="err-msg" id="email-err"></span>
+                    </div>
 
-                    <button type="submit">Send Message</button>
+                    <div class="field-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="How can we help?" maxlength="120">
+                        <span class="err-msg" id="subject-err"></span>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us more..." maxlength="1000"></textarea>
+                        <div class="char-count"><span id="char">0</span> / 1000</div>
+                        <span class="err-msg" id="message-err"></span>
+                    </div>
+
+                    <button type="submit" id="submit-btn">
+                        <span id="btn-label">Send Message</span>
+                    </button>
                 </form>
+
+                <div id="success-msg" style="display:none;">
+                    <p>&#10003; Message sent! We'll get back to you at <strong id="confirm-email"></strong> soon.</p>
+                    <button id="reset-btn">Send Another Message</button>
+                </div>
             </section>
         </main>
         <footer>
